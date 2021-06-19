@@ -3,6 +3,10 @@
 #include <sstream>
 #include <vector>
 
+/**********************************************************************/
+/* UDF definitions */
+/**********************************************************************/
+
 std::string read_file_into_string()
 {
 	std::ifstream ifile("/home/prashant/study/cpp/sstream/ostringstream.cpp");
@@ -19,6 +23,10 @@ std::string read_file_into_string()
 //	std::cout << std::endl << "File read complete" << std::endl;
 	return buf.str();
 }
+
+/**********************************************************************/
+/* main function */
+/**********************************************************************/
 
 int main()
 {
@@ -38,5 +46,17 @@ int main()
 	}
 
 */
+
+	/* Output File code */
+
+	std::filebuf fb;
+	fb.open("/home/prashant/study/cpp/sstream/output.txt", std::ios::out);
+
+	std::ostream os(&fb);
+
+	os << text;
+
+	fb.close();
+	
 	return(0);	
 }
